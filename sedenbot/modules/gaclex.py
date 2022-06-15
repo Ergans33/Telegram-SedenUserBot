@@ -13,7 +13,7 @@ from sedenbot import HELP
 from sedenecem.core import edit, extract_args, get_translation, reply, sedenify
 
 
-@sedenify(pattern='^.(seden|help)')
+@sedenify(pattern='^.(gaclex|help)')
 def seden(message):
     seden = extract_args(message).lower()
     cmds = OrderedDict(sorted(HELP.items()))
@@ -26,5 +26,5 @@ def seden(message):
         edit(message, get_translation('sedenUsage2', ['**', '`']))
         metin = f'{get_translation("sedenShowLoadedModules", ["**", "`", len(cmds)])}\n'
         for item in cmds:
-            metin += f'• `{item}`\n'
+            metin += f'* `{item}`🖕🏾\n'
         reply(message, metin)

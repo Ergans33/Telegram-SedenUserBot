@@ -44,11 +44,11 @@ LOGS = getLogger(__name__)
 # Bot lang
 #
 # If missted, the default lang is English.
-SEDEN_LANG = environ.get('SEDEN_LANG', 'en')
+GACLEX_LANG = environ.get('GACLEX_LANG', 'en')
 
 
 def get_translation(transKey, params: list = None):
-    ret = _tr.get_translation(SEDEN_LANG, transKey)
+    ret = _tr.get_translation(GACLEX_LANG, transKey)
 
     if params and len(params) > 0:
         for i in reversed(range(len(params))):
@@ -121,8 +121,8 @@ if not API_HASH:
     quit(1)
 
 BOT_VERSION = '1.6.6'
-SUPPORT_GROUP = 'SedenUserBotSupport'
-CHANNEL = 'SedenUserBot'
+SUPPORT_GROUP = 'gaclexxa'
+CHANNEL = 'GaclexUserBot'
 
 # Weather default city
 WEATHER = environ.get('WEATHER', None)
@@ -272,7 +272,7 @@ class PyroClient(Client):
     def start(self):
         super().start()
         LOGS.info(get_translation('runningBot', [SUPPORT_GROUP]))
-        LOGS.info(get_translation('sedenVersion', [BOT_VERSION]))
+        LOGS.info(get_translation('GaclexVersion', [BOT_VERSION]))
 
     def stop(self):
         super().stop()
@@ -282,7 +282,7 @@ class PyroClient(Client):
         raise NotImplementedError
 
 
-app = PyroClient('sedenify', api_id=API_ID, api_hash=API_HASH, session_string=SESSION)
+app = PyroClient('gaclexify', api_id=API_ID, api_hash=API_HASH, session_string=SESSION)
 
 
 # delete these variables to add some security
